@@ -4,3 +4,4 @@ NakedPolicy is an AI-powered browser extension simplifies complex digital agreem
 
 ## Team SkyOps Submitting for Hack This Fall 5.0
 1. Aishwary Gathe (GL)
+2. Karan Tomar
