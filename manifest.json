@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Privacy Policy Analyzer",
+  "version": "0.1",
+  "action": {
+    "default_popup": "src/popup/index.html"
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs",
+    "cookies"
+  ],
+  "host_permissions": [
+    "https://*/*",
+    "http://*/*"
+  ],
+  "background": {
+    "service_worker": "src/background/service-worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*/*",
+        "http://*/*"
+      ],
+      "js": ["src/content/policyFinder.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
