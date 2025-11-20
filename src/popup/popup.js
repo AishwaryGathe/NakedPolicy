@@ -1,11 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-  chrome.runtime.sendMessage({ type: "GET_PARSED_POLICY" }, (res) => {
-    const out = document.getElementById("output");
+  console.log("Popup loaded");
 
-    if (res && res.parsed && res.parsed.policy.raw_text.length > 0) {
-      out.textContent = JSON.stringify(res.parsed, null, 2);
-    } else {
-      out.textContent = "No parsed policy yet.";
-    }
+  chrome.runtime.sendMessage({ type: "GET_PARSED_POLICY" }, (res) => {
+    console.log("Popup response:", res);
+
+    const out = document.getElementById("output");
+    if (!res || !res.parsed) return out.textContent = "{}";
+
+    out.textContent = JSON.stringify(res.parsed, null, 2);
   });
 });

@@ -1,31 +1,44 @@
 {
   "manifest_version": 3,
   "name": "Privacy Policy Analyzer",
+  "description": "Extract and analyze privacy policies.",
   "version": "0.1",
+
   "action": {
-    "default_popup": "src/popup/index.html"
+    "default_popup": "src/popup/index.html",
+    "default_title": "Privacy Policy Analyzer"
   },
+
+  "background": {
+    "service_worker": "src/background/service-worker.js",
+    "type": "module"
+  },
+
   "permissions": [
     "activeTab",
-    "storage",
     "tabs",
+    "scripting",
+    "storage",
     "cookies"
   ],
+
   "host_permissions": [
     "https://*/*",
     "http://*/*"
   ],
-  "background": {
-    "service_worker": "src/background/service-worker.js"
-  },
+
   "content_scripts": [
     {
-      "matches": [
-        "https://*/*",
-        "http://*/*"
-      ],
+      "matches": ["https://*/*", "http://*/*"],
       "js": ["src/content/policyFinder.js"],
       "run_at": "document_end"
+    }
+  ],
+
+  "web_accessible_resources": [
+    {
+      "resources": ["src/content/domExtractor.js"],
+      "matches": ["https://*/*", "http://*/*"]
     }
   ]
 }
