@@ -1,7 +1,3 @@
-Here’s a **clean, professional, GitHub-ready README.md** for **NakedPolicy** — clear, structured, and suitable for open-source or startup-grade presentation:
-
----
-
 # **NakedPolicy**
 
 ### *Privacy Policies. Terms. Cookies. Simplified.*
