@@ -87,11 +87,11 @@ NakedPolicy empowers people to:
 ## **Tech Stack** (Example – adjust based on actual implementation)
 
 * **Frontend:** React / Next.js
-* **Backend:** Node.js / Python FastAPI
-* **AI/LLM:** OpenAI / Anthropic / Local LLM integrations
+* **Backend:** Node.js / Python FastAPI / Apify
+* **AI/LLM:** Anthropic / Local LLM integrations
 * **Extension Framework:** Manifest V3 for Chrome
 * **Database:** MongoDB / PostgreSQL
-* **Deployment:** Vercel / AWS / Render
+* **Deployment:** Vultr (Coolify)
 
 ---
 
