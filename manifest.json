@@ -1,44 +1,36 @@
 {
   "manifest_version": 3,
-  "name": "Privacy Policy Analyzer",
-  "description": "Extract and analyze privacy policies.",
-  "version": "0.1",
-
-  "action": {
-    "default_popup": "src/popup/index.html",
-    "default_title": "Privacy Policy Analyzer"
-  },
-
-  "background": {
-    "service_worker": "src/background/service-worker.js",
-    "type": "module"
-  },
-
+  "name": "Privacy Policy Analyzer Pro",
+  "version": "2.0",
+  "description": "AI-powered privacy policy analyzer with web scraping - Get detailed insights on data collection, usage, and third-party sharing.",
   "permissions": [
     "activeTab",
-    "tabs",
     "scripting",
-    "storage",
-    "cookies"
+    "storage"
   ],
-
   "host_permissions": [
-    "https://*/*",
-    "http://*/*"
+    "<all_urls>"
   ],
-
+  "background": {
+    "service_worker": "background.js"
+  },
   "content_scripts": [
     {
-      "matches": ["https://*/*", "http://*/*"],
-      "js": ["src/content/policyFinder.js"],
-      "run_at": "document_end"
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
     }
   ],
-
-  "web_accessible_resources": [
-    {
-      "resources": ["src/content/domExtractor.js"],
-      "matches": ["https://*/*", "http://*/*"]
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
     }
-  ]
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
 }
